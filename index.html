@@ -4,9 +4,9 @@
 <head>
     <meta charset="utf-8" />
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-    <title>Lomba Sains Semarang 2026</title>
+    <title>Rise Awards 2026</title>
     <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;display=swap"
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&amp;display=swap"
         rel="stylesheet" />
     <link
         href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
@@ -21,14 +21,14 @@
             theme: {
                 extend: {
                     colors: {
-                        "primary": "#ffcf3d",
-                        "accent-blue": "#5AB3F0",
-                        "accent-coral": "#FFB76F",
-                        "background-light": "#fcfbf8",
-                        "background-dark": "#231e0f",
+                        "primary": "#18447A",
+                        "accent-blue": "#18447A",
+                        "accent-coral": "#1A2436",
+                        "background-light": "#F5F5F5",
+                        "background-dark": "#18447A",
                     },
                     fontFamily: {
-                        "display": ["Plus Jakarta Sans", "sans-serif"]
+                        "display": ["Montserrat", "sans-serif"]
                     },
                     borderRadius: {
                         "DEFAULT": "0.5rem",
@@ -46,7 +46,7 @@
 }
 
         body {
-            font-family: "Plus Jakarta Sans", sans-serif;
+            font-family: "Montserrat", sans-serif;
         }
 
         .material-symbols-outlined {
@@ -54,57 +54,78 @@
         }
 
         .blob-bg {
-            background-color: #ffcf3d;
+            background-color: #18447A;
             border-radius: 43% 57% 70% 30% / 30% 45% 55% 70%;
         }
     </style>
 </head>
 
-<body class="bg-background-light dark:bg-background-dark text-[#1d180c] dark:text-white transition-colors duration-300">
+<body class="bg-background-light dark:bg-background-dark text-[#1d180c] dark:text-[#F5F5F5] transition-colors duration-300">
     <!-- Sticky Navigation Bar -->
-    <header
-        class="sticky top-0 z-50 w-full border-b border-solid border-[#f4f1e6] bg-white/80 dark:bg-background-dark/80 backdrop-blur-md px-6 lg:px-40 py-4">
-        <div class="flex items-center justify-between max-w-[1200px] mx-auto">
-            <div class="flex items-center gap-3">
+    <header x-data="{ mobileMenuOpen: false }"
+        class="sticky top-0 z-50 w-full bg-background-light dark:bg-background-dark px-6 lg:px-40">
+        <div class="relative flex items-center justify-between max-w-[1200px] mx-auto">
+            <div class="flex items-center gap-5">
                 <div class="p-2 rounded-lg flex items-center justify-center">
-                    <img src="images/logo-kota.png" alt="Logo Lomba Sains Semarang" class="w-6 h-6 object-contain" />
+                    <img src="images/logo-kota.png" alt="Logo Lomba Sains Semarang" class="w-10 h-10 object-contain" />
                 </div>
-                <h2 class="text-[#1d180c] dark:text-white text-lg font-extrabold leading-tight tracking-tight">
-                    Lomba Sains Semarang</h2>
+                <h2 class="bg-gradient-to-r from-[#0A3474] to-[#028391] bg-clip-text text-transparent text-lg font-extrabold leading-tight tracking-tight">
+                    Rise Awards</h2>
             </div>
-            <div class="hidden md:flex items-center gap-8">
-                <nav class="flex items-center gap-8">
-                    <a class="text-sm font-semibold hover:text-primary transition-colors" href="#">Beranda</a>
-                    <a class="text-sm font-semibold hover:text-primary transition-colors"
-                        href="#informasi">Informasi</a>
-                    <a class="text-sm font-semibold hover:text-primary transition-colors" href="#faq">FAQ</a>
-                </nav>
-                <button
-                    class="flex min-w-[140px] cursor-pointer items-center justify-center rounded-xl h-11 px-5 bg-primary text-[#1d180c] text-sm font-bold shadow-sm hover:scale-105 transition-transform">
-                    Daftar Sekarang
-                </button>
+            <nav class="hidden md:flex absolute left-[48.5%] -translate-x-1/2 items-center gap-8">
+                <a class="text-sm font-semibold hover:text-primary transition-colors" href="#">Beranda</a>
+                <a class="text-sm font-semibold hover:text-primary transition-colors"
+                    href="#timeline">Timeline</a>
+                <a class="text-sm font-semibold hover:text-primary transition-colors"
+                    href="#informasi">Informasi</a>
+                <a class="text-sm font-semibold hover:text-primary transition-colors" href="#faq">FAQ</a>
+            </nav>
+            <div class="hidden md:flex p-2 rounded-lg items-center justify-center">
+                <img src="images/logo-brida.png" alt="Logo BRIDA" class="w-14 h-14 object-contain" />
             </div>
-            <!-- Mobile Menu Placeholder -->
-            <button class="md:hidden p-2">
-                <span class="material-symbols-outlined">menu</span>
+            <!-- Mobile Menu Button -->
+            <button @click="mobileMenuOpen = !mobileMenuOpen" class="md:hidden p-2">
+                <span class="material-symbols-outlined" x-text="mobileMenuOpen ? 'close' : 'menu'"></span>
             </button>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div x-show="mobileMenuOpen" 
+             x-transition:enter="transition ease-out duration-200"
+             x-transition:enter-start="opacity-0 -translate-y-4"
+             x-transition:enter-end="opacity-100 translate-y-0"
+             x-transition:leave="transition ease-in duration-150"
+             x-transition:leave-start="opacity-100 translate-y-0"
+             x-transition:leave-end="opacity-0 -translate-y-4"
+             class="md:hidden mt-4 pb-4 border-t border-[#f4f1e6]">
+            <nav class="flex flex-col gap-4 pt-4">
+                <a @click="mobileMenuOpen = false" class="text-sm font-semibold hover:text-primary transition-colors px-2 py-2" href="#">Beranda</a>
+                <a @click="mobileMenuOpen = false" class="text-sm font-semibold hover:text-primary transition-colors px-2 py-2" href="#timeline">Timeline</a>
+                <a @click="mobileMenuOpen = false" class="text-sm font-semibold hover:text-primary transition-colors px-2 py-2" href="#informasi">Informasi</a>
+                <a @click="mobileMenuOpen = false" class="text-sm font-semibold hover:text-primary transition-colors px-2 py-2" href="#faq">FAQ</a>
+                <div class="flex items-center justify-center pt-2">
+                    <img src="images/logo-brida.png" alt="Logo BRIDA" class="w-12 h-12 object-contain" />
+                </div>
+            </nav>
         </div>
     </header>
     <main class="max-w-[1200px] mx-auto px-6 lg:px-10">
         <!-- Hero Section -->
-        <section class="py-12 md:py-20">
-            <div class="@container">
+        <section class="py-12 md:py-20 relative overflow-hidden">
+            <div class="absolute inset-0 bg-cover bg-center bg-no-repeat" style="background-image: url('images/'); filter: hue-rotate(200deg) saturate(1.2) brightness(0.9);"></div>
+            <div class="absolute inset-0 bg-gradient-to-r from-[#F5F5F5] via-[#F5F5F5]/85 to-transparent"></div>
+            <div class="@container relative z-10">
                 <div class="flex flex-col gap-10 lg:flex-row items-center">
                     <div class="flex flex-col gap-8 flex-1 lg:max-w-[500px]">
                         <div class="flex flex-col gap-4 text-left">
 
                             <h1
-                                class="text-[#1d180c] dark:text-white text-5xl md:text-6xl font-black leading-tight tracking-tight">
-                                Jelajahi Dunia <span class="text-primary underline decoration-accent-coral/30">Ilmu
+                                class="text-[#1d180c] dark:text-[#F5F5F5] text-5xl md:text-6xl font-black leading-tight tracking-tight">
+                                Jelajahi Dunia <span class="text-primary underline decoration-black/30">Ilmu
                                     Pengetahuan!</span>
                             </h1>
                             <p
-                                class="text-[#1d180c]/70 dark:text-white/70 text-lg md:text-xl font-medium leading-relaxed">
+                                class="text-[#1d180c]/70 dark:text-[#F5F5F5]/70 text-lg md:text-xl font-medium leading-relaxed">
                                 Jadilah ilmuwan masa depan di kompetisi sains paling bergengsi se-Semarang. Tunjukkan
                                 kreativitas dan logikamu!
                             </p>
@@ -112,14 +133,13 @@
                         <div class="flex flex-col sm:flex-row gap-4">
                             <a href="#informasi">
                                 <button
-                                    class="flex flex-1 min-w-[200px] cursor-pointer items-center justify-center rounded-xl h-14 px-8 bg-primary text-[#1d180c] text-lg font-extrabold shadow-lg shadow-primary/20 hover:bg-primary/90 transition-all">
+                                    class="flex flex-1 min-w-[200px] cursor-pointer items-center justify-center rounded-xl h-14 px-8 bg-[#1A2436] text-[#F5F5F5] text-lg font-extrabold shadow-lg shadow-black/20 hover:bg-gray-800 transition-all">
                                     Lihat Informasi Lomba
                                 </button>
                             </a>
                         </div>
                     </div>
                     <div class="relative flex-1 w-full flex justify-center items-center py-10">
-                        <div class="blob-bg absolute inset-0 opacity-20 blur-3xl scale-110"></div>
                         <div class="relative z-10 w-full aspect-square max-w-[500px] bg-center bg-no-repeat bg-cover rounded-3xl"
                             data-alt="Ilustrasi ceria anak-anak sekolah menggunakan jas lab dan mikroskop">
                         </div>
@@ -131,45 +151,120 @@
         <section class="pb-20">
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
                 <div
-                    class="flex flex-col gap-3 rounded-2xl p-8 border-2 border-[#eae2cd] dark:border-[#3d3623] bg-white dark:bg-background-dark shadow-sm hover:border-primary transition-colors group">
+                    class="flex flex-col gap-3 rounded-2xl p-8 border-2 border-[#1A2436] dark:border-[#1A2436] bg-[#F5F5F5] dark:bg-background-dark shadow-sm hover:border-primary transition-colors group">
                     <span
                         class="material-symbols-outlined text-accent-blue text-3xl group-hover:scale-110 transition-transform">event</span>
-                    <p class="text-[#1d180c]/60 dark:text-white/60 text-sm font-bold uppercase tracking-wider">
+                    <p class="text-[#1d180c]/60 dark:text-[#F5F5F5]/60 text-sm font-bold uppercase tracking-wider">
                         Pendaftaran</p>
-                    <p class="text-[#1d180c] dark:text-white text-2xl font-black">Jan - Feb 2026</p>
+                    <p class="text-[#1d180c] dark:text-[#F5F5F5] text-2xl font-black">Jan - Feb 2026</p>
                 </div>
                 <div
-                    class="flex flex-col gap-3 rounded-2xl p-8 border-2 border-[#eae2cd] dark:border-[#3d3623] bg-white dark:bg-background-dark shadow-sm hover:border-primary transition-colors group">
+                    class="flex flex-col gap-3 rounded-2xl p-8 border-2 border-black dark:border-black bg-[#F5F5F5] dark:bg-background-dark shadow-sm hover:border-primary transition-colors group">
                     <span
-                        class="material-symbols-outlined text-accent-coral text-3xl group-hover:scale-110 transition-transform">school</span>
-                    <p class="text-[#1d180c]/60 dark:text-white/60 text-sm font-bold uppercase tracking-wider">Kategori
+                        class="material-symbols-outlined text-black text-3xl group-hover:scale-110 transition-transform">school</span>
+                    <p class="text-[#1d180c]/60 dark:text-[#F5F5F5]/60 text-sm font-bold uppercase tracking-wider">Kategori
                         Peserta</p>
-                    <p class="text-[#1d180c] dark:text-white text-2xl font-black">SD, SMP, SMA</p>
+                    <p class="text-[#1d180c] dark:text-[#F5F5F5] text-2xl font-black">SD, SMP, SMA</p>
                 </div>
                 <div
-                    class="flex flex-col gap-3 rounded-2xl p-8 border-2 border-[#eae2cd] dark:border-[#3d3623] bg-white dark:bg-background-dark shadow-sm hover:border-primary transition-colors group">
+                    class="flex flex-col gap-3 rounded-2xl p-8 border-2 border-black dark:border-black bg-[#F5F5F5] dark:bg-background-dark shadow-sm hover:border-primary transition-colors group">
                     <span
                         class="material-symbols-outlined text-primary text-3xl group-hover:scale-110 transition-transform">location_on</span>
-                    <p class="text-[#1d180c]/60 dark:text-white/60 text-sm font-bold uppercase tracking-wider">Lokasi
+                    <p class="text-[#1d180c]/60 dark:text-[#F5F5F5]/60 text-sm font-bold uppercase tracking-wider">Lokasi
                     </p>
-                    <p class="text-[#1d180c] dark:text-white text-2xl font-black" data-location="Semarang">Semarang City
+                    <p class="text-[#1d180c] dark:text-[#F5F5F5] text-2xl font-black" data-location="Semarang">Semarang City
                     </p>
                 </div>
                 <div
-                    class="flex flex-col gap-3 rounded-2xl p-8 border-2 border-[#eae2cd] dark:border-[#3d3623] bg-white dark:bg-background-dark shadow-sm hover:border-primary transition-colors group">
+                    class="flex flex-col gap-3 rounded-2xl p-8 border-2 border-black dark:border-black bg-[#F5F5F5] dark:bg-background-dark shadow-sm hover:border-primary transition-colors group">
                     <span
                         class="material-symbols-outlined text-green-500 text-3xl group-hover:scale-110 transition-transform">workspace_premium</span>
-                    <p class="text-[#1d180c]/60 dark:text-white/60 text-sm font-bold uppercase tracking-wider">Total
+                    <p class="text-[#1d180c]/60 dark:text-[#F5F5F5]/60 text-sm font-bold uppercase tracking-wider">Total
                         Hadiah</p>
-                    <p class="text-[#1d180c] dark:text-white text-2xl font-black">Rp 25.000.000</p>
+                    <p class="text-[#1d180c] dark:text-[#F5F5F5] text-2xl font-black">Rp 25.000.000</p>
                 </div>
             </div>
         </section>
-        <!-- Information Section Grid -->
-        <section class="py-16 bg-[#fffbeb] dark:bg-[#1d1a10] rounded-3xl px-8 mb-20" id="informasi">
+        <!-- Timeline Section -->
+        <section class="py-16 mb-20" id="timeline">
             <div class="flex flex-col items-center text-center mb-12">
-                <h2 class="text-3xl font-black text-[#1d180c] dark:text-white">Pusat Informasi</h2>
-                <p class="text-lg text-[#1d180c]/70 dark:text-white/70 mt-2">
+                <h2 class="text-3xl font-black text-[#1d180c] dark:text-[#F5F5F5]">Timeline Perlombaan</h2>
+                <p class="text-lg text-[#1d180c]/70 dark:text-[#F5F5F5]/70 mt-2">
+                    Catat tanggal penting berikut untuk perjalanan kompetisimu
+                </p>
+            </div>
+
+            <div class="max-w-4xl mx-auto">
+                <div class="relative">
+                    <!-- Timeline Line -->
+                    <div class="absolute left-8 top-0 bottom-0 w-1 bg-[#1A2436] dark:bg-[#F5F5F5]"></div>
+                    
+                    <!-- Timeline Items -->
+                    <div class="space-y-8">
+                        <!-- Item 1 -->
+                        <div class="relative flex gap-6 items-start">
+                            <div class="flex-shrink-0 w-16 h-16 rounded-full bg-[#1A2436] dark:bg-[#F5F5F5] flex items-center justify-center text-[#F5F5F5] dark:text-[#1A2436] font-bold text-xl z-10">
+                                1
+                            </div>
+                            <div class="flex-1 bg-[#F5F5F5] dark:bg-background-dark rounded-2xl p-6 border-2 border-[#1A2436] shadow-md">
+                                <h3 class="text-xl font-black text-[#1d180c] dark:text-[#F5F5F5] mb-2">Pendaftaran</h3>
+                                <p class="text-[#1d180c]/70 dark:text-[#F5F5F5]/70 font-semibold">Februari Minggu 1 s/d Maret Minggu 3</p>
+                            </div>
+                        </div>
+
+                        <!-- Item 2 -->
+                        <div class="relative flex gap-6 items-start">
+                            <div class="flex-shrink-0 w-16 h-16 rounded-full bg-[#1A2436] dark:bg-[#F5F5F5] flex items-center justify-center text-[#F5F5F5] dark:text-[#1A2436] font-bold text-xl z-10">
+                                2
+                            </div>
+                            <div class="flex-1 bg-[#F5F5F5] dark:bg-background-dark rounded-2xl p-6 border-2 border-[#1A2436] shadow-md">
+                                <h3 class="text-xl font-black text-[#1d180c] dark:text-[#F5F5F5] mb-2">Seleksi Administrasi</h3>
+                                <p class="text-[#1d180c]/70 dark:text-[#F5F5F5]/70 font-semibold">Februari Minggu 4 s/d Maret Minggu 2</p>
+                            </div>
+                        </div>
+
+                        <!-- Item 3 -->
+                        <div class="relative flex gap-6 items-start">
+                            <div class="flex-shrink-0 w-16 h-16 rounded-full bg-[#1A2436] dark:bg-[#F5F5F5] flex items-center justify-center text-[#F5F5F5] dark:text-[#1A2436] font-bold text-xl z-10">
+                                3
+                            </div>
+                            <div class="flex-1 bg-[#F5F5F5] dark:bg-background-dark rounded-2xl p-6 border-2 border-[#1A2436] shadow-md">
+                                <h3 class="text-xl font-black text-[#1d180c] dark:text-[#F5F5F5] mb-2">Penilaian Karya Tulis</h3>
+                                <p class="text-[#1d180c]/70 dark:text-[#F5F5F5]/70 font-semibold">Maret Minggu 1 s/d April Minggu 2</p>
+                            </div>
+                        </div>
+
+                        <!-- Item 4 -->
+                        <div class="relative flex gap-6 items-start">
+                            <div class="flex-shrink-0 w-16 h-16 rounded-full bg-[#1A2436] dark:bg-[#F5F5F5] flex items-center justify-center text-[#F5F5F5] dark:text-[#1A2436] font-bold text-xl z-10">
+                                4
+                            </div>
+                            <div class="flex-1 bg-[#F5F5F5] dark:bg-background-dark rounded-2xl p-6 border-2 border-[#1A2436] shadow-md">
+                                <h3 class="text-xl font-black text-[#1d180c] dark:text-[#F5F5F5] mb-2">Presentasi Finalis & Pengumuman Pemenang</h3>
+                                <p class="text-[#1d180c]/70 dark:text-[#F5F5F5]/70 font-semibold">April Minggu 3</p>
+                            </div>
+                        </div>
+
+                        <!-- Item 5 -->
+                        <div class="relative flex gap-6 items-start">
+                            <div class="flex-shrink-0 w-16 h-16 rounded-full bg-[#1A2436] dark:bg-[#F5F5F5] flex items-center justify-center text-[#F5F5F5] dark:text-[#1A2436] font-bold text-xl z-10">
+                                5
+                            </div>
+                            <div class="flex-1 bg-[#F5F5F5] dark:bg-background-dark rounded-2xl p-6 border-2 border-[#1A2436] shadow-md">
+                                <h3 class="text-xl font-black text-[#1d180c] dark:text-[#F5F5F5] mb-2">Penyerahan Hadiah</h3>
+                                <p class="text-[#1d180c]/70 dark:text-[#F5F5F5]/70 font-semibold">Mei Minggu 1</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Information Section Grid -->
+        <section class="py-16 bg-[#F5F5F5] dark:bg-background-dark rounded-3xl px-8 mb-20" id="informasi">
+            <div class="flex flex-col items-center text-center mb-12">
+                <h2 class="text-3xl font-black text-[#1d180c] dark:text-[#F5F5F5]">Pusat Informasi</h2>
+                <p class="text-lg text-[#1d180c]/70 dark:text-[#F5F5F5]/70 mt-2">
                     Segala hal yang kamu butuhkan untuk memulai perjalanan sainsmu
                 </p>
             </div>
@@ -178,85 +273,85 @@
 
                 <!-- Form Pendaftaran -->
                 <div
-                    class="flex flex-col gap-5 rounded-2xl border-2 border-[#eae2cd] dark:border-[#3d3623] bg-white dark:bg-background-dark p-8 items-center text-center cursor-pointer hover:-translate-y-2 transition-transform shadow-md">
+                    class="flex flex-col gap-5 rounded-2xl border-2 border-black dark:border-[#F5F5F5] bg-[#F5F5F5] dark:bg-background-dark p-8 items-center text-center cursor-pointer hover:-translate-y-2 transition-transform shadow-md">
                     <div class="size-16 rounded-full bg-primary/20 flex items-center justify-center">
                         <span class="material-symbols-outlined text-primary text-3xl">person_add</span>
                     </div>
                     <div>
                         <h3 class="text-xl font-extrabold mb-2">Form Pendaftaran</h3>
-                        <p class="text-sm text-[#1d180c]/60 dark:text-white/60">
+                        <p class="text-sm text-[#1d180c]/60 dark:text-[#F5F5F5]/60">
                             Isi data dirimu atau timmu di sini untuk mendaftar.
                         </p>
                     </div>
-                    <button class="w-full h-12 rounded-xl bg-primary font-bold text-[#1d180c]">
+                    <button class="w-full h-12 rounded-xl bg-black font-bold text-[#F5F5F5]">
                         Klik Daftar
                     </button>
                 </div>
 
                 <!-- Poster Lomba -->
                 <div
-                    class="flex flex-col gap-5 rounded-2xl border-2 border-[#eae2cd] dark:border-[#3d3623] bg-white dark:bg-background-dark p-8 items-center text-center cursor-pointer hover:-translate-y-2 transition-transform shadow-md">
-                    <div class="size-16 rounded-full bg-accent-coral/20 flex items-center justify-center">
-                        <span class="material-symbols-outlined text-accent-coral text-3xl">image</span>
+                    class="flex flex-col gap-5 rounded-2xl border-2 border-black dark:border-[#F5F5F5] bg-[#F5F5F5] dark:bg-background-dark p-8 items-center text-center cursor-pointer hover:-translate-y-2 transition-transform shadow-md">
+                    <div class="size-16 rounded-full bg-black/20 flex items-center justify-center">
+                        <span class="material-symbols-outlined text-black text-3xl">image</span>
                     </div>
                     <div>
                         <h3 class="text-xl font-extrabold mb-2">Poster Lomba</h3>
-                        <p class="text-sm text-[#1d180c]/60 dark:text-white/60">
+                        <p class="text-sm text-[#1d180c]/60 dark:text-[#F5F5F5]/60">
                             Unduh poster resmi untuk dibagikan ke sekolah atau teman.
                         </p>
                     </div>
-                    <button class="w-full h-12 rounded-xl bg-accent-coral font-bold text-white">
+                    <button class="w-full h-12 rounded-xl bg-black font-bold text-[#F5F5F5]">
                         Lihat Poster
                     </button>
                 </div>
 
                 <!-- Buku Panduan -->
                 <div
-                    class="flex flex-col gap-5 rounded-2xl border-2 border-[#eae2cd] dark:border-[#3d3623] bg-white dark:bg-background-dark p-8 items-center text-center cursor-pointer hover:-translate-y-2 transition-transform shadow-md">
+                    class="flex flex-col gap-5 rounded-2xl border-2 border-black dark:border-[#F5F5F5] bg-[#F5F5F5] dark:bg-background-dark p-8 items-center text-center cursor-pointer hover:-translate-y-2 transition-transform shadow-md">
                     <div class="size-16 rounded-full bg-accent-blue/20 flex items-center justify-center">
                         <span class="material-symbols-outlined text-accent-blue text-3xl">book_5</span>
                     </div>
                     <div>
                         <h3 class="text-xl font-extrabold mb-2">Buku Panduan</h3>
-                        <p class="text-sm text-[#1d180c]/60 dark:text-white/60">
+                        <p class="text-sm text-[#1d180c]/60 dark:text-[#F5F5F5]/60">
                             Baca tata tertib, kriteria penilaian, dan teknis lomba.
                         </p>
                     </div>
-                    <button class="w-full h-12 rounded-xl bg-accent-blue font-bold text-white">
+                    <button class="w-full h-12 rounded-xl bg-black font-bold text-[#F5F5F5]">
                         Buka Guidebook
                     </button>
                 </div>
 
                 <!-- Daftar Peserta Lolos -->
                 <div
-                    class="flex flex-col gap-5 rounded-2xl border-2 border-[#eae2cd] dark:border-[#3d3623] bg-white dark:bg-background-dark p-8 items-center text-center cursor-pointer hover:-translate-y-2 transition-transform shadow-md">
+                    class="flex flex-col gap-5 rounded-2xl border-2 border-black dark:border-[#F5F5F5] bg-[#F5F5F5] dark:bg-background-dark p-8 items-center text-center cursor-pointer hover:-translate-y-2 transition-transform shadow-md">
                     <div class="size-16 rounded-full bg-green-500/20 flex items-center justify-center">
                         <span class="material-symbols-outlined text-green-600 text-3xl">checklist</span>
                     </div>
                     <div>
                         <h3 class="text-xl font-extrabold mb-2">Peserta Lolos</h3>
-                        <p class="text-sm text-[#1d180c]/60 dark:text-white/60">
+                        <p class="text-sm text-[#1d180c]/60 dark:text-[#F5F5F5]/60">
                             Lihat daftar peserta yang lolos ke tahap selanjutnya.
                         </p>
                     </div>
-                    <button class="w-full h-12 rounded-xl bg-green-600 font-bold text-white">
+                    <button class="w-full h-12 rounded-xl bg-black font-bold text-[#F5F5F5]">
                         Lihat Daftar
                     </button>
                 </div>
 
                 <!-- Sertifikat -->
                 <div
-                    class="flex flex-col gap-5 rounded-2xl border-2 border-[#eae2cd] dark:border-[#3d3623] bg-white dark:bg-background-dark p-8 items-center text-center cursor-pointer hover:-translate-y-2 transition-transform shadow-md">
+                    class="flex flex-col gap-5 rounded-2xl border-2 border-black dark:border-[#F5F5F5] bg-[#F5F5F5] dark:bg-background-dark p-8 items-center text-center cursor-pointer hover:-translate-y-2 transition-transform shadow-md">
                     <div class="size-16 rounded-full bg-purple-500/20 flex items-center justify-center">
                         <span class="material-symbols-outlined text-purple-600 text-3xl">workspace_premium</span>
                     </div>
                     <div>
                         <h3 class="text-xl font-extrabold mb-2">Sertifikat</h3>
-                        <p class="text-sm text-[#1d180c]/60 dark:text-white/60">
+                        <p class="text-sm text-[#1d180c]/60 dark:text-[#F5F5F5]/60">
                             Unduh sertifikat peserta dan pemenang lomba.
                         </p>
                     </div>
-                    <button class="w-full h-12 rounded-xl bg-purple-600 font-bold text-white">
+                    <button class="w-full h-12 rounded-xl bg-black font-bold text-[#F5F5F5]">
                         Unduh Sertifikat
                     </button>
                 </div>
@@ -274,12 +369,12 @@
 
       <!-- FAQ Item -->
       <div x-data="{ open: false }"
-           class="rounded-xl border-2 border-[#eae2cd] dark:border-[#3d3623] overflow-hidden">
+           class="rounded-xl border-2 border-[#1A2436] dark:border-[#F5F5F5] overflow-hidden hover:shadow-lg hover:shadow-[#1A2436]/20 transition-all">
 
         <!-- Header -->
         <button
           @click="open = !open"
-          class="w-full bg-primary/10 p-5 flex justify-between items-center text-left cursor-pointer">
+          class="w-full p-5 flex justify-between items-center text-left cursor-pointer bg-[#F5F5F5] dark:bg-background-dark">
           <span class="font-bold">
             Apakah lomba ini bersifat tim atau individu?
           </span>
@@ -294,8 +389,8 @@
         <div
           x-show="open"
           x-collapse
-          class="p-5 bg-white dark:bg-background-dark text-sm leading-relaxed
-                 border-t border-[#eae2cd] dark:border-[#3d3623]">
+          class="p-5 bg-[#F5F5F5] dark:bg-background-dark text-sm leading-relaxed
+                 border-t border-[#1A2436] dark:border-[#F5F5F5]">
           Lomba Sains Semarang 2026 dapat diikuti secara individu maupun tim
           (maksimal 3 orang) tergantung kategori yang dipilih.
         </div>
@@ -304,11 +399,11 @@
 
       <!-- FAQ Item -->
       <div x-data="{ open: false }"
-           class="rounded-xl border-2 border-[#eae2cd] dark:border-[#3d3623] overflow-hidden">
+           class="rounded-xl border-2 border-[#1A2436] dark:border-[#F5F5F5] overflow-hidden hover:shadow-lg hover:shadow-[#1A2436]/20 transition-all">
 
         <button
           @click="open = !open"
-          class="w-full p-5 flex justify-between items-center text-left cursor-pointer bg-white dark:bg-background-dark">
+          class="w-full p-5 flex justify-between items-center text-left cursor-pointer bg-[#F5F5F5] dark:bg-background-dark">
           <span class="font-bold">Berapa biaya pendaftarannya?</span>
           <span
             class="material-symbols-outlined transition-transform duration-300"
@@ -320,10 +415,60 @@
         <div
           x-show="open"
           x-collapse
-          class="p-5 bg-white dark:bg-background-dark text-sm leading-relaxed
-                 border-t border-[#eae2cd] dark:border-[#3d3623]">
+          class="p-5 bg-[#F5F5F5] dark:bg-background-dark text-sm leading-relaxed
+                 border-t border-[#1A2436] dark:border-[#F5F5F5]">
           Informasi biaya pendaftaran akan diumumkan secara resmi melalui website
           dan media sosial penyelenggara.
+        </div>
+
+      </div>
+
+      <!-- FAQ Item 3 -->
+      <div x-data="{ open: false }"
+           class="rounded-xl border-2 border-[#1A2436] dark:border-[#F5F5F5] overflow-hidden hover:shadow-lg hover:shadow-[#1A2436]/20 transition-all">
+
+        <button
+          @click="open = !open"
+          class="w-full p-5 flex justify-between items-center text-left cursor-pointer bg-[#F5F5F5] dark:bg-background-dark">
+          <span class="font-bold">Kapan pengumuman hasil lomba?</span>
+          <span
+            class="material-symbols-outlined transition-transform duration-300"
+            :class="{ 'rotate-180': open }">
+            expand_more
+          </span>
+        </button>
+
+        <div
+          x-show="open"
+          x-collapse
+          class="p-5 bg-[#F5F5F5] dark:bg-background-dark text-sm leading-relaxed
+                 border-t border-[#1A2436] dark:border-[#F5F5F5]">
+          Pengumuman hasil lomba akan diumumkan pada April Minggu 3, 2026. Peserta akan dihubungi langsung melalui kontak yang terdaftar.
+        </div>
+
+      </div>
+
+      <!-- FAQ Item 4 -->
+      <div x-data="{ open: false }"
+           class="rounded-xl border-2 border-[#1A2436] dark:border-[#F5F5F5] overflow-hidden hover:shadow-lg hover:shadow-[#1A2436]/20 transition-all">
+
+        <button
+          @click="open = !open"
+          class="w-full p-5 flex justify-between items-center text-left cursor-pointer bg-[#F5F5F5] dark:bg-background-dark">
+          <span class="font-bold">Apa saja yang harus disiapkan untuk pendaftaran?</span>
+          <span
+            class="material-symbols-outlined transition-transform duration-300"
+            :class="{ 'rotate-180': open }">
+            expand_more
+          </span>
+        </button>
+
+        <div
+          x-show="open"
+          x-collapse
+          class="p-5 bg-[#F5F5F5] dark:bg-background-dark text-sm leading-relaxed
+                 border-t border-[#1A2436] dark:border-[#F5F5F5]">
+          Peserta perlu menyiapkan karya tulis ilmiah, foto/video dokumentasi, dan data pribadi lengkap. Semua detail persyaratan tersedia di Buku Panduan yang dapat diunduh dari website ini.
         </div>
 
       </div>
@@ -342,10 +487,10 @@
                 <div class="flex flex-col gap-6 max-w-sm">
                     <div class="flex items-center gap-3">
                         <div class="p-2 rounded-lg flex items-center justify-center">
-                            <img src="images/logo-kota.png" alt="Logo Lomba Sains Semarang" class="w-6 h-6 object-contain" />
+                            <img src="images/logo-kota.png" alt="Logo Lomba Sains Semarang" class="w-10 h-10 object-contain" />
                         </div>
                         <h2 class="text-[#1d180c] text-2xl font-black tracking-tight">
-                            Lomba Sains Semarang
+                            Rise Awards 2026
                         </h2>
                     </div>
                     <p class="text-[#1d180c]/80 font-medium leading-relaxed">
@@ -353,46 +498,46 @@
                         Semarang.
                     </p>
                     <div class="flex gap-4">
-                        <a class="p-3 bg-white/20 rounded-full hover:bg-white/40 transition-colors" href="#">
+                        <a class="p-3 bg-[#F5F5F5]/20 rounded-full hover:bg-[#F5F5F5]/40 transition-colors" href="#">
                             <span class="material-symbols-outlined">chat</span> <!-- WhatsApp representation -->
                         </a>
-                        <a class="p-3 bg-white/20 rounded-full hover:bg-white/40 transition-colors" href="#">
+                        <a class="p-3 bg-[#F5F5F5]/20 rounded-full hover:bg-[#F5F5F5]/40 transition-colors" href="#">
                             <span class="material-symbols-outlined">photo_camera</span>
                             <!-- Instagram representation -->
                         </a>
-                        <a class="p-3 bg-white/20 rounded-full hover:bg-white/40 transition-colors" href="#">
+                        <a class="p-3 bg-[#F5F5F5]/20 rounded-full hover:bg-[#F5F5F5]/40 transition-colors" href="#">
                             <span class="material-symbols-outlined">alternate_email</span>
                         </a>
                     </div>
                 </div>
                 <div class="grid grid-cols-2 gap-16">
                     <div class="flex flex-col gap-4">
-                        <h4 class="text-[#1d180c] font-black text-lg">Menu Cepat</h4>
-                        <ul class="flex flex-col gap-2 font-bold text-[#1d180c]/70">
-                            <li><a class="hover:text-[#1d180c]" href="#">Beranda</a></li>
-                            <li><a class="hover:text-[#1d180c]" href="#">Tentang Kami</a></li>
-                            <li><a class="hover:text-[#1d180c]" href="#">Jadwal</a></li>
-                            <li><a class="hover:text-[#1d180c]" href="#">Kontak</a></li>
+                        <h4 class="text-[#F5F5F5] font-black text-lg">Menu Cepat</h4>
+                        <ul class="flex flex-col gap-2 font-bold text-[#F5F5F5]/70">
+                            <li><a class="hover:text-[#F5F5F5]" href="#">Beranda</a></li>
+                            <li><a class="hover:text-[#F5F5F5]" href="#">Tentang Kami</a></li>
+                            <li><a class="hover:text-[#F5F5F5]" href="#">Jadwal</a></li>
+                            <li><a class="hover:text-[#F5F5F5]" href="#">Kontak</a></li>
                         </ul>
                     </div>
                     <div class="flex flex-col gap-4">
-                        <h4 class="text-[#1d180c] font-black text-lg">Dukungan</h4>
-                        <ul class="flex flex-col gap-2 font-bold text-[#1d180c]/70">
-                            <li><a class="hover:text-[#1d180c]" href="#">Bantuan</a></li>
-                            <li><a class="hover:text-[#1d180c]" href="#">Privacy Policy</a></li>
-                            <li><a class="hover:text-[#1d180c]" href="#">Syarat &amp; Ketentuan</a></li>
+                        <h4 class="text-[#F5F5F5] font-black text-lg">Dukungan</h4>
+                        <ul class="flex flex-col gap-2 font-bold text-[#F5F5F5]/70">
+                            <li><a class="hover:text-[#F5F5F5]" href="#">Bantuan</a></li>
+                            <li><a class="hover:text-[#F5F5F5]" href="#">Privacy Policy</a></li>
+                            <li><a class="hover:text-[#F5F5F5]" href="#">Syarat &amp; Ketentuan</a></li>
                         </ul>
                     </div>
                 </div>
             </div>
             <div
-                class="pt-8 border-t border-[#1d180c]/10 flex flex-col md:flex-row justify-between items-center gap-4 text-center md:text-left">
-                <p class="text-[#1d180c]/60 font-bold text-sm">
-                    © 2026 Panitia Lomba Sains Semarang. All rights reserved.
+                class="pt-8 border-t border-[#F5F5F5]/10 flex flex-col md:flex-row justify-between items-center gap-4 text-center md:text-left">
+                <p class="text-[#F5F5F5]/60 font-bold text-sm">
+                    © 2026 RiseAwardsBrida. All rights reserved.
                 </p>
                 <div class="flex items-center gap-2">
-                    <span class="text-xs font-bold text-[#1d180c]/60">Organized by</span>
-                    <span class="font-black text-[#1d180c]">Dinas Pendidikan Semarang</span>
+                    <span class="text-xs font-bold text-[#F5F5F5]/60">Organized by</span>
+                    <span class="font-black text-[#F5F5F5]">Dinas Pendidikan Semarang</span>
                 </div>
             </div>
         </div>
