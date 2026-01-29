@@ -63,7 +63,7 @@
 <body class="bg-background-light dark:bg-background-dark text-[#1d180c] dark:text-[#F5F5F5] transition-colors duration-300">
     <!-- Sticky Navigation Bar -->
     <header x-data="{ mobileMenuOpen: false }"
-        class="sticky top-0 z-50 w-full bg-background-light dark:bg-background-dark px-6 lg:px-40">
+        class="sticky top-0 z-50 w-full bg-background-light/50 dark:bg-background-dark/50 backdrop-blur-md px-6 lg:px-40">
         <div class="relative flex items-center justify-between max-w-[1200px] mx-auto">
             <div class="flex items-center gap-5">
                 <div class="p-2 rounded-lg flex items-center justify-center">
@@ -73,12 +73,12 @@
                     Rise Awards</h2>
             </div>
             <nav class="hidden md:flex absolute left-[48.5%] -translate-x-1/2 items-center gap-8">
-                <a class="text-sm font-semibold hover:text-primary transition-colors" href="#">Beranda</a>
-                <a class="text-sm font-semibold hover:text-primary transition-colors"
+                <a class="text-sm font-semibold text-[#1d180c]/60 hover:text-primary transition-colors" href="#">Beranda</a>
+                <a class="text-sm font-semibold text-[#1d180c]/60 hover:text-primary transition-colors"
                     href="#timeline">Timeline</a>
-                <a class="text-sm font-semibold hover:text-primary transition-colors"
+                <a class="text-sm font-semibold text-[#1d180c]/60 hover:text-primary transition-colors"
                     href="#informasi">Informasi</a>
-                <a class="text-sm font-semibold hover:text-primary transition-colors" href="#faq">FAQ</a>
+                <a class="text-sm font-semibold text-[#1d180c]/60 hover:text-primary transition-colors" href="#faq">FAQ</a>
             </nav>
             <div class="hidden md:flex p-2 rounded-lg items-center justify-center">
                 <img src="images/logo-brida.png" alt="Logo BRIDA" class="w-14 h-14 object-contain" />
@@ -99,10 +99,10 @@
              x-transition:leave-end="opacity-0 -translate-y-4"
              class="md:hidden mt-4 pb-4 border-t border-[#f4f1e6]">
             <nav class="flex flex-col gap-4 pt-4">
-                <a @click="mobileMenuOpen = false" class="text-sm font-semibold hover:text-primary transition-colors px-2 py-2" href="#">Beranda</a>
-                <a @click="mobileMenuOpen = false" class="text-sm font-semibold hover:text-primary transition-colors px-2 py-2" href="#timeline">Timeline</a>
-                <a @click="mobileMenuOpen = false" class="text-sm font-semibold hover:text-primary transition-colors px-2 py-2" href="#informasi">Informasi</a>
-                <a @click="mobileMenuOpen = false" class="text-sm font-semibold hover:text-primary transition-colors px-2 py-2" href="#faq">FAQ</a>
+                <a @click="mobileMenuOpen = false" class="text-sm font-semibold text-[#1d180c]/60 hover:text-primary transition-colors px-2 py-2" href="#">Beranda</a>
+                <a @click="mobileMenuOpen = false" class="text-sm font-semibold text-[#1d180c]/60 hover:text-primary transition-colors px-2 py-2" href="#timeline">Timeline</a>
+                <a @click="mobileMenuOpen = false" class="text-sm font-semibold text-[#1d180c]/60 hover:text-primary transition-colors px-2 py-2" href="#informasi">Informasi</a>
+                <a @click="mobileMenuOpen = false" class="text-sm font-semibold text-[#1d180c]/60 hover:text-primary transition-colors px-2 py-2" href="#faq">FAQ</a>
                 <div class="flex items-center justify-center pt-2">
                     <img src="images/logo-brida.png" alt="Logo BRIDA" class="w-12 h-12 object-contain" />
                 </div>
@@ -537,7 +537,7 @@
                 </p>
                 <div class="flex items-center gap-2">
                     <span class="text-xs font-bold text-[#F5F5F5]/60">Organized by</span>
-                    <span class="font-black text-[#F5F5F5]">Dinas Pendidikan Semarang</span>
+                    <span class="font-black text-[#F5F5F5]">Badan Riset dan Inovasi Daerah Kota Semarang</span>
                 </div>
             </div>
         </div>
