@@ -47,6 +47,9 @@
 
         body {
             font-family: "Montserrat", sans-serif;
+            overflow-x: hidden;
+            width: 100vw;
+            max-width: 100%;
         }
 
         .material-symbols-outlined {
@@ -72,7 +75,7 @@
                 <h2 class="bg-gradient-to-r from-[#0A3474] to-[#028391] bg-clip-text text-transparent text-lg font-extrabold leading-tight tracking-tight">
                     Rise Awards</h2>
             </div>
-            <nav class="hidden md:flex absolute left-[48.5%] -translate-x-1/2 items-center gap-8">
+            <nav class="hidden md:flex absolute left-[49%] -translate-x-1/2 items-center gap-8">
                 <a class="text-sm font-semibold text-[#1d180c]/60 hover:text-primary transition-colors" href="#">Beranda</a>
                 <a class="text-sm font-semibold text-[#1d180c]/60 hover:text-primary transition-colors"
                     href="#timeline">Timeline</a>
@@ -111,37 +114,35 @@
     </header>
     <main class="max-w-[1200px] mx-auto px-6 lg:px-10">
         <!-- Hero Section -->
-        <section class="py-12 md:py-20 relative overflow-hidden">
-            <div class="absolute inset-0 bg-cover bg-center bg-no-repeat" style="background-image: url('images/'); filter: hue-rotate(200deg) saturate(1.2) brightness(0.9);"></div>
-            <div class="absolute inset-0 bg-gradient-to-r from-[#F5F5F5] via-[#F5F5F5]/85 to-transparent"></div>
-            <div class="@container relative z-10">
-                <div class="flex flex-col gap-10 lg:flex-row items-center">
-                    <div class="flex flex-col gap-8 flex-1 lg:max-w-[500px]">
-                        <div class="flex flex-col gap-4 text-left">
-
-                            <h1
-                                class="text-[#1d180c] dark:text-[#F5F5F5] text-5xl md:text-6xl font-black leading-tight tracking-tight">
-                                Jelajahi Dunia <span class="text-primary underline decoration-black/30">Ilmu
-                                    Pengetahuan!</span>
+        <section class="py-12 md:py-20 relative overflow-visible flex items-center justify-center" style="perspective: 1200px;">
+            <div class="relative w-full max-w-6xl h-[600px] md:h-[700px]">
+                <!-- Blur side effects -->
+                <div class="absolute -left-20 top-0 w-40 h-full bg-gradient-to-r from-black/40 to-transparent blur-3xl rounded-[3rem] pointer-events-none"></div>
+                <div class="absolute -right-20 top-0 w-40 h-full bg-gradient-to-l from-black/40 to-transparent blur-3xl rounded-[3rem] pointer-events-none"></div>
+                
+                <!-- Main frame with 3D effect -->
+                <div class="w-full h-full rounded-[3rem] overflow-hidden backdrop-blur-sm bg-white/30 dark:bg-black/30 border-2 shadow-2xl shadow-black/30 transform-gpu" style="transform: translateZ(40px) rotateX(2deg) rotateY(0deg);">
+                    <div class="absolute inset-0 bg-cover bg-center bg-no-repeat rounded-[3rem]" style="background-image: url('images/'); filter: hue-rotate(200deg) saturate(1.2) brightness(0.9);"></div>
+                    <div class="absolute inset-0 bg-gradient-to-b from-[#F5F5F5]/60 to-[#F5F5F5]/40 dark:from-black/40 dark:to-black/30 rounded-[3rem]"></div>
+                    <div class="relative z-10 h-full w-full flex items-center justify-center px-6">
+                <div class="absolute inset-0 bg-cover bg-center bg-no-repeat rounded-[3rem]" style="background-image: url('images/'); filter: hue-rotate(200deg) saturate(1.2) brightness(0.9);"></div>
+                <div class="absolute inset-0 bg-gradient-to-b from-[#F5F5F5]/60 to-[#F5F5F5]/40 dark:from-black/40 dark:to-black/30 rounded-[3rem]"></div>
+                <div class="relative z-10 h-full w-full flex items-center justify-center px-6">
+                    <div class="flex flex-col gap-8 items-center justify-center max-w-[600px]">
+                        <div class="flex flex-col gap-6 text-center">
+                            <h1 class="text-[#1d180c] dark:text-[#F5F5F5] text-5xl md:text-6xl font-black leading-tight tracking-tight">
+                                Jelajahi Dunia <span class="text-primary underline decoration-black/30">Ilmu Pengetahuan!</span>
                             </h1>
-                            <p
-                                class="text-[#1d180c]/70 dark:text-[#F5F5F5]/70 text-lg md:text-xl font-medium leading-relaxed">
-                                Jadilah ilmuwan masa depan di kompetisi sains paling bergengsi se-Semarang. Tunjukkan
-                                kreativitas dan logikamu!
+                            <p class="text-[#1d180c]/70 dark:text-[#F5F5F5]/70 text-lg md:text-xl font-medium leading-relaxed">
+                                Jadilah ilmuwan masa depan di kompetisi sains paling bergengsi se-Semarang. Tunjukkan kreativitas dan logikamu!
                             </p>
                         </div>
-                        <div class="flex flex-col sm:flex-row gap-4">
+                        <div class="flex gap-4 justify-center">
                             <a href="#informasi">
-                                <button
-                                    class="flex flex-1 min-w-[200px] cursor-pointer items-center justify-center rounded-xl h-14 px-8 bg-[#1A2436] text-[#F5F5F5] text-lg font-extrabold shadow-lg shadow-black/20 hover:bg-gray-800 transition-all">
+                                <button class="flex min-w-[200px] cursor-pointer items-center justify-center rounded-xl h-14 px-8 bg-[#1A2436] text-[#F5F5F5] text-lg font-extrabold shadow-lg shadow-black/20 hover:bg-gray-800 transition-all">
                                     Lihat Informasi Lomba
                                 </button>
                             </a>
-                        </div>
-                    </div>
-                    <div class="relative flex-1 w-full flex justify-center items-center py-10">
-                        <div class="relative z-10 w-full aspect-square max-w-[500px] bg-center bg-no-repeat bg-cover rounded-3xl"
-                            data-alt="Ilustrasi ceria anak-anak sekolah menggunakan jas lab dan mikroskop">
                         </div>
                     </div>
                 </div>
